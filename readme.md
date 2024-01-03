@@ -29,6 +29,10 @@ card1 = "Five of Diamonds"
 type deck []string
 ```
 
+### Types
+
+![Alt text](image-3.png)
+
 ### Structs
 
 Collection of properties that are related.
@@ -86,6 +90,16 @@ for i, card := range cards { // iterate in cards
 }
 ```
 
+Under the hood, every slice contains an array: 
+
+![Alt text](image.png)
+
+![Alt text](image-1.png)
+
+So, this is the why when you create a receiver function to an slice, you dont need use pointers, the copy created during the function runtime points to the same address of slice inner array:
+
+![Alt text](image-2.png)
+
 Dividing slice:
 
 `slice[startIndexIncluding:upToNotIncluded]` 
@@ -137,6 +151,8 @@ To fix this, use pointers:
 
 ### Pointers
 
+For change slices, there is no need of pointes.
+
 `&var` gives access to memory address
 
 `*pointer` gives access to value that memory address point
@@ -149,6 +165,19 @@ While * before a *var*, indicates that we want manipulate the value the pointer 
 func (pointerToPerson *person) updateName(newName string) {
 	(*pointerToPerson).firstName = newName
 }
+```
+
+But there is a short hand, you can declare you function receveing a pointer, but you dont need to create a pointer from a variable, like: 
+
+```go
+jimPointer := &jim
+jimPointer.updateName("Jimmy")
+```
+
+You can use just:
+
+```go
+jim.updateName("Jimmy")
 ```
 
 ### Multiple returning value from functions
@@ -164,6 +193,10 @@ func deal(d deck, handSize int) (deck, deck) {
 // retriving the values
 hand, remainingDeck := deal(cards, 5)
 ```
+
+### Interfaces
+
+
 
 ### Random
 
