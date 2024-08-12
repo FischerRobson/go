@@ -25,10 +25,10 @@ func printGreeting(b bot) {
 }
 
 // can ommit instance if not uses
-func (englishBot) getGreeting(text string, n int) (string, err) {
+func (englishBot) getGreeting(text string, n int) (string, error) {
 	return fmt.Sprintf("Hello %s, %i", text, n), nil
 }
 
-func (sp spanishBot) getGreeting(text string, n int) (string, err) {
+func (sp spanishBot) getGreeting(text string, n int) (string, error) {
 	return fmt.Sprintf("Hola %s, %i", text, n), nil
 }
