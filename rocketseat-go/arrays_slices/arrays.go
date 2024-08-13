@@ -1,4 +1,4 @@
-package arrays
+package arrays_slices
 
 // array size must be kwon for compile and never change
 
